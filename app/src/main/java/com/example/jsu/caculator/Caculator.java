@@ -1,5 +1,6 @@
 package com.example.jsu.caculator;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -30,7 +31,13 @@ public class Caculator extends AppCompatActivity {
         });
     }
 
-    public void OnClick(View v){
+    public void OnClick(View b){
+        //declare your display area
+        TextView display = (TextView) findViewById(R.id.displayView);
+
+        //get the id of the button
+        String id = (b.getResources().getResourceName(b.getId())).split("/")[1];
+        
 
     }
 
