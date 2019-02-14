@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import java.util.*;
+import android.widget.*;
 
 public class Caculator extends AppCompatActivity {
 
@@ -27,6 +29,13 @@ public class Caculator extends AppCompatActivity {
             }
         });
     }
+
+    public void OnClick(View v){
+
+    }
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
