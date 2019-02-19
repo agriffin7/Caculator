@@ -37,7 +37,7 @@ public class Caculator extends AppCompatActivity {
 
         //get the id of the button
         String id = (b.getResources().getResourceName(b.getId())).split("/")[1];
-        
+
 
     }
 
