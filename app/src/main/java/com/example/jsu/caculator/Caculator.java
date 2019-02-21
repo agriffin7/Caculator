@@ -124,9 +124,7 @@ public class Caculator extends AppCompatActivity {
         }
         else if (id.equals("squareRoot")){
             str.delete(0, str.length());
-            numInt2 = numInt1;
-            numInt1 = 0;
-            optype = "sr";
+            str.insert(0, Math.sqrt(numInt1));
 
         }
         else if (id.equals("percentage")){
@@ -170,12 +168,6 @@ public class Caculator extends AppCompatActivity {
             else if (optype.equals("m")){
                 str.delete(0, str.length());
                 str.insert(0, (numInt2*numInt1));
-
-            }
-            else if (optype.equals("sr")){
-
-                //str.delete(0, str.length());
-               // str.insert(0, (numInt2^numInt1));
 
             }
             else if (optype.equals("p")){
