@@ -143,6 +143,12 @@ public class Caculator extends AppCompatActivity {
 
         }
         else if (id.equals("SignChange")){
+            if(str.charAt(0) != '-') {
+                str.insert(0, "-");
+            }
+            else if (str.charAt(0) == '-'){
+                str.delete(0,0);
+            }
 
         }
         else if (id.equals("equal")){
