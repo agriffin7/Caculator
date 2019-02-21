@@ -9,6 +9,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.*;
 import java.lang.*;
 import android.widget.*;
@@ -37,6 +40,7 @@ public class Caculator extends AppCompatActivity {
     String optype = "";
     double numInt1 = 0;
     double numInt2 = 0;
+    String Preminder = "";
 
     public void OnClick(View b){
         //declare your display area
@@ -100,12 +104,14 @@ public class Caculator extends AppCompatActivity {
             numInt2 = numInt1;
             numInt1 = 0;
             optype = "a";
+            Preminder = "a";
         }
         else if (id.equals("subtract")){
             str.delete(0, str.length());
             numInt2 = numInt1;
             numInt1 = 0;
             optype = "s";
+            Preminder = "s";
 
         }
         else if (id.equals("divide")){
@@ -113,6 +119,7 @@ public class Caculator extends AppCompatActivity {
             numInt2 = numInt1;
             numInt1 = 0;
             optype = "d";
+            Preminder = "d";
 
         }
         else if (id.equals("multiply")){
@@ -120,6 +127,7 @@ public class Caculator extends AppCompatActivity {
             numInt2 = numInt1;
             numInt1 = 0;
             optype = "m";
+            Preminder = "m";
 
         }
         else if (id.equals("squareRoot")){
@@ -128,9 +136,6 @@ public class Caculator extends AppCompatActivity {
 
         }
         else if (id.equals("percentage")){
-            str.delete(0, str.length());
-            numInt2 = numInt1;
-            numInt1 = 0;
             optype = "p";
 
         }
@@ -171,8 +176,23 @@ public class Caculator extends AppCompatActivity {
 
             }
             else if (optype.equals("p")){
-                //str.delete(0, str.length());
-                //str.insert(0, (numInt2%numInt1));
+                optype="";
+                str.delete(0, str.length());
+                DecimalFormat df = new DecimalFormat("##.##");
+
+                if(Preminder.equals("a")) {
+                    numInt1 = numInt1 + 1;
+                    str.insert(0, (df.format(numInt2*numInt1)));
+                }
+
+                if(Preminder.equals("s")){
+                    numInt1 = numInt1-1;
+                    numInt2 = numInt2*numInt1;
+                    numInt2 = -1*numInt2;
+                    str.insert(0, (df.format(numInt2)));
+                }
+
+
 
             }
 
@@ -182,6 +202,7 @@ public class Caculator extends AppCompatActivity {
             numInt2=0;
 
             str.delete(0, str.length());
+            System.out.println(display.getText());
         }
 
 
@@ -195,7 +216,17 @@ public class Caculator extends AppCompatActivity {
 
         //System.out.println(id);
         //display the text
-        display.setText(str);
+        if(optype.equals("p")){
+            display.setText(str.toString() + "%");
+            DecimalFormat df = new DecimalFormat("##.##");
+            numInt1 = numInt1/100;
+            df.format(numInt1);
+            System.out.println(numInt1);
+
+        }
+        else{
+            display.setText(str);
+        }
 
     }
 
