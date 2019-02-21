@@ -138,6 +138,7 @@ public class Caculator extends AppCompatActivity {
         }
         //other buttons
         else if (id.equals("decimal")){
+            str.insert(str.length(),".");
 
 
         }
